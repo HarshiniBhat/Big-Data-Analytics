@@ -1,0 +1,44 @@
+# 1. Check Docker is installed
+docker --version
+
+# 2. Open WSL terminal (Ubuntu)
+
+# 3. Create project folder
+mkdir hadoop-docker
+cd hadoop-docker
+
+# 4. Create docker-compose.yml file HERE (copy-paste the full YAML I gave earlier)
+#    OR download it to this folder (C:\Users\harsh\hadoop-docker\docker-compose.yml)
+
+# 5. Start Hadoop cluster
+docker compose up -d
+
+# 6. Wait 90 seconds, check all 3 containers healthy
+docker ps
+
+# 7. Enter NameNode container
+docker exec -it namenode bash
+
+
+HDFS Demo Commands (Inside Container)
+
+# 1. Create HDFS practice directory
+hdfs dfs -mkdir /practice
+
+# 2. Create local test file
+echo "HDFS test data" > /tmp/test.txt
+
+# 3. Upload to HDFS → WATCH http://localhost:9870 refresh!
+hdfs dfs -put /tmp/test.txt /practice/
+
+# 4. Verify in HDFS
+hdfs dfs -ls /practice/
+hdfs dfs -cat /practice/test.txt
+hdfs dfs -du -h /practice/
+
+Shutdown
+# From Windows CMD (outside WSL)
+docker compose down -v
+
+
+
