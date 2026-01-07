@@ -7,8 +7,8 @@ docker --version
 mkdir hadoop-docker
 cd hadoop-docker
 
-# 4. Create docker-compose.yml file HERE (copy-paste the full YAML I gave earlier)
-#    OR download it to this folder (C:\Users\harsh\hadoop-docker\docker-compose.yml)
+# 4. Create docker-compose.yml file HERE (copy-paste the full YAML)
+#    OR download it to this folder eg : (C:\Users\harsh\hadoop-docker\docker-compose.yml)
 
 # 5. Start Hadoop cluster
 docker compose up -d
@@ -39,6 +39,7 @@ hdfs dfs -du -h /practice/
 Shutdown
 # From Windows CMD (outside WSL)
 docker compose down -v
+
 
 
 
